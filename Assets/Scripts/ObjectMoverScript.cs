@@ -19,8 +19,11 @@ public class ObjectMoverScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate((travelPoints[currIndex].position - transform.position).normalized * Time.deltaTime * speed);
-        if ((transform.position - travelPoints[currIndex].position).magnitude < 0.1f)
+        var vectorToNextPoint = travelPoints[currIndex].position - transform.position;
+
+        transform.Translate(vectorToNextPoint.normalized * Time.deltaTime * speed);
+
+        if (vectorToNextPoint.magnitude < 0.1f)
         {
             currIndex = (currIndex + 1) % travelPoints.Count;
         }

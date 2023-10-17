@@ -45,6 +45,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground")) { 
             isOnGround = true;
+            gameObject.transform.parent = collision.transform;
         }
     }
 
@@ -53,6 +54,7 @@ public class PlayerScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = false;
+            gameObject.transform.parent = null;
         }
     }
 }
