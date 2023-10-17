@@ -26,22 +26,22 @@ public class CameraScript : MonoBehaviour
 
         if (diff.x >= offsetX)
         {
-            transform.position = new Vector3(player.transform.position.x - offsetX, 3.5f, -24);
+            transform.position = new Vector3(player.transform.position.x - offsetX, 3.5f, -14);
         }
 
         if (diff.x <= -offsetX)
         {
-            transform.position = new Vector3(player.transform.position.x + offsetX, 3.5f, -24);
+            transform.position = new Vector3(player.transform.position.x + offsetX, 3.5f, -14);
         }
 
         if (diff.y >= offsetY)
         {
-            transform.position = new Vector3(transform.position.x, player.transform.position.y - offsetY, -24);
+            transform.position = new Vector3(transform.position.x, player.transform.position.y - offsetY, -14);
         }
 
         if (diff.y <= -offsetY)
         {
-            transform.position = new Vector3(transform.position.x, player.transform.position.y + offsetY, -24);
+            transform.position = new Vector3(transform.position.x, player.transform.position.y + offsetY, -14);
         }
     }
 }
