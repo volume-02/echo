@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class PlayerScript : MonoBehaviour
     public float jumpForce = 10f;
     public float playerSpeed = 10f;
     bool isOnGround = true;
+    int hitPoints = 3;
+
+    GameManagerScript gameManager;
+
+    public TextMeshProUGUI hpText;
 
     Vector2 movement;
 
@@ -16,12 +22,14 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        hpText.text = $"HP: {hitPoints}";
+        gameManager = FindObjectOfType<GameManagerScript>().GetComponent<GameManagerScript>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.Translate(Vector3.right * playerSpeed * Time.deltaTime * movement.x);
+        if (!gameManager.isGameOver) { transform.Translate(Vector3.right * playerSpeed * Time.deltaTime * movement.x); }
 
     }
 
@@ -34,7 +42,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-           if (isOnGround)
+            if (isOnGround && !gameManager.isGameOver)
             {
                 playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             }
@@ -43,7 +51,8 @@ public class PlayerScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground")) { 
+        if (collision.gameObject.CompareTag("Ground"))
+        {
             isOnGround = true;
             gameObject.transform.parent = collision.transform;
         }
@@ -55,6 +64,20 @@ public class PlayerScript : MonoBehaviour
         {
             isOnGround = false;
             gameObject.transform.parent = null;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Enemy trigger");
+            hitPoints -= 1;
+            hpText.text = $"HP: {hitPoints}";
+            if (hitPoints <= 0)
+            {
+                gameManager.GameOver();
+            }
         }
     }
 }
