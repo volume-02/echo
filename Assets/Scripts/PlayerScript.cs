@@ -9,8 +9,11 @@ public class PlayerScript : MonoBehaviour
     Rigidbody playerRb;
     public float jumpForce = 10f;
     public float playerSpeed = 10f;
+    public GameObject weapon;
     bool isOnGround = true;
     int hitPoints = 3;
+
+    bool isRotating = false;
 
     GameManagerScript gameManager;
 
@@ -26,7 +29,10 @@ public class PlayerScript : MonoBehaviour
         gameManager = FindObjectOfType<GameManagerScript>().GetComponent<GameManagerScript>();
     }
 
-    // Update is called once per frame
+    private void Update()
+    {
+        Attack();
+    }
     void FixedUpdate()
     {
         if (!gameManager.isGameOver) { transform.Translate(Vector3.right * playerSpeed * Time.deltaTime * movement.x); }
@@ -71,7 +77,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Enemy trigger");
+            Debug.Log("Enemy trigger" + gameObject.tag);
             hitPoints -= 1;
             hpText.text = $"HP: {hitPoints}";
             if (hitPoints <= 0)
@@ -79,5 +85,43 @@ public class PlayerScript : MonoBehaviour
                 gameManager.GameOver();
             }
         }
+    }
+
+    private void Attack()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            StartCoroutine(SwingWeapon());
+        }
+    }
+
+    //Extremely suspicious, but working, so ok...
+    private IEnumerator SwingWeapon()
+    {
+        if (isRotating) yield break;
+        isRotating = true;
+
+        var counter = 0;
+        var total = 90;
+
+        var degreesByStep = 90 / (total / 2);
+
+        while (counter < total)
+        {
+            if (counter < total / 2)
+            {
+                weapon.transform.RotateAround(transform.position, new Vector3(0, 0, 1), -degreesByStep);
+            }
+            else
+            {
+                weapon.transform.RotateAround(transform.position, new Vector3(0, 0, 1), degreesByStep);
+            }
+            counter++;
+
+            yield return new WaitForSeconds(0.001f);
+        }
+
+
+        isRotating = false;
     }
 }
