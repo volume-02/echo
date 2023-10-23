@@ -15,6 +15,8 @@ public class PlayerScript : MonoBehaviour
 
     bool isRotating = false;
 
+    Vector3 direction = Vector3.right;
+
     GameManagerScript gameManager;
 
     public TextMeshProUGUI hpText;
@@ -35,13 +37,27 @@ public class PlayerScript : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (!gameManager.isGameOver) { transform.Translate(Vector3.right * playerSpeed * Time.deltaTime * movement.x); }
+        if (!gameManager.isGameOver) { transform.Translate(Vector3.right * playerSpeed * Time.deltaTime * movement.x, Space.World); }
 
     }
 
     public void Move(InputAction.CallbackContext context)
     {
         movement = context.ReadValue<Vector2>();
+
+        if (movement.x != 0)
+        {
+            direction = new Vector3(movement.x, 0, 0);
+        }
+
+        if (direction == Vector3.right)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -73,17 +89,13 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void TakeDamage()
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        hitPoints -= 1;
+        hpText.text = $"HP: {hitPoints}";
+        if (hitPoints <= 0)
         {
-            Debug.Log("Enemy trigger" + gameObject.tag);
-            hitPoints -= 1;
-            hpText.text = $"HP: {hitPoints}";
-            if (hitPoints <= 0)
-            {
-                gameManager.GameOver();
-            }
+            gameManager.GameOver();
         }
     }
 
@@ -110,11 +122,11 @@ public class PlayerScript : MonoBehaviour
         {
             if (counter < total / 2)
             {
-                weapon.transform.RotateAround(transform.position, new Vector3(0, 0, 1), -degreesByStep);
+                weapon.transform.RotateAround(transform.position, new Vector3(0, 0, 1), -degreesByStep * direction.x);
             }
             else
             {
-                weapon.transform.RotateAround(transform.position, new Vector3(0, 0, 1), degreesByStep);
+                weapon.transform.RotateAround(transform.position, new Vector3(0, 0, 1), degreesByStep * direction.x);
             }
             counter++;
 
