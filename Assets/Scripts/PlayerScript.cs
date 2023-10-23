@@ -33,7 +33,7 @@ public class PlayerScript : MonoBehaviour
 
     private void Update()
     {
-        Attack();
+
     }
     void FixedUpdate()
     {
@@ -99,12 +99,9 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void Attack()
+    public void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
             StartCoroutine(SwingWeapon());
-        }
     }
 
     //Extremely suspicious, but working, so ok...

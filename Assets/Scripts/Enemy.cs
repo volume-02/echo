@@ -26,14 +26,11 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Weapon"))
         {
-            Debug.Log("Accept some damage");
             hitPoints--;
         }
 
-        Debug.Log("Tag: " + other.gameObject.tag);
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("player trigger in enemy");
             other.gameObject.GetComponent<PlayerScript>().TakeDamage();
         }
     }
