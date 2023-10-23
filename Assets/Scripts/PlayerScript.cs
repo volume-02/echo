@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject weapon;
     bool isOnGround = true;
     int hitPoints = 3;
-
+    int jumpCount = 0;
     bool isRotating = false;
 
     Vector3 direction = Vector3.right;
@@ -64,9 +64,10 @@ public class PlayerScript : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-            if (isOnGround && !gameManager.isGameOver)
+            if ((isOnGround || jumpCount < 2) && !gameManager.isGameOver)
             {
                 playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                jumpCount++;
             }
         }
     }
@@ -76,6 +77,7 @@ public class PlayerScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
+            jumpCount = 0;
             gameObject.transform.parent = collision.transform;
         }
     }
