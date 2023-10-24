@@ -91,9 +91,9 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damage)
     {
-        hitPoints -= 1;
+        hitPoints -= damage;
         hpText.text = $"HP: {hitPoints}";
         if (hitPoints <= 0)
         {

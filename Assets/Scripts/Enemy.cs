@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
 
     public int hitPoints;
+    public int damage = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +32,7 @@ public class Enemy : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerScript>().TakeDamage();
+            other.gameObject.GetComponent<PlayerScript>().TakeDamage(damage);
         }
     }
 }

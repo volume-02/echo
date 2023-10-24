@@ -16,6 +16,7 @@ public class MoveToPlayer : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame

@@ -17,7 +17,7 @@ public class ObjectMoverScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         var vectorToNextPoint = travelPoints[currIndex].position - transform.position;
 

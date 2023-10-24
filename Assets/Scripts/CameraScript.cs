@@ -2,6 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//public class CameraScript : MonoBehaviour
+//{
+//    public GameObject player;
+
+//    float offsetX = 10;
+//    float offsetY = 0;
+//    // Start is called before the first frame update
+//    void Start()
+//    {
+
+//    }
+
+//    // Update is called once per frame
+//    void Update()
+//    {
+//        calcCameraPosition();
+//    }
+
+//    void calcCameraPosition()
+//    {
+//        var diff = player.transform.position - transform.position;
+
+//        if (diff.x >= offsetX)
+//        {
+//            transform.position = new Vector3(player.transform.position.x - offsetX, 3.2f, -9.8f);
+//        }
+
+//        if (diff.x <= -offsetX)
+//        {
+//            transform.position = new Vector3(player.transform.position.x + offsetX, 3.2f, -9.8f);
+//        }
+
+//        if (diff.y >= offsetY)
+//        {
+//            transform.position = new Vector3(transform.position.x, player.transform.position.y - offsetY, -9.8f);
+//        }
+
+//        if (diff.y <= -offsetY)
+//        {
+//            transform.position = new Vector3(transform.position.x, player.transform.position.y + offsetY, -9.8f);
+//        }
+//    }
+//}
+
+
 public class CameraScript : MonoBehaviour
 {
     public GameObject player;
@@ -11,11 +56,12 @@ public class CameraScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        offsetX = transform.position.x - player.transform.position.x;
+        offsetY = transform.position.y - player.transform.position.y;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         calcCameraPosition();
     }
@@ -24,24 +70,10 @@ public class CameraScript : MonoBehaviour
     {
         var diff = player.transform.position - transform.position;
 
-        if (diff.x >= offsetX)
-        {
-            transform.position = new Vector3(player.transform.position.x - offsetX, 3.5f, -14);
-        }
+        var posX = player.transform.position.x + (diff.x >= offsetX ? -offsetX : offsetX);
 
-        if (diff.x <= -offsetX)
-        {
-            transform.position = new Vector3(player.transform.position.x + offsetX, 3.5f, -14);
-        }
+        var posY = player.transform.position.y + (diff.y >= offsetY ? -offsetY : offsetY);
 
-        if (diff.y >= offsetY)
-        {
-            transform.position = new Vector3(transform.position.x, player.transform.position.y - offsetY, -14);
-        }
-
-        if (diff.y <= -offsetY)
-        {
-            transform.position = new Vector3(transform.position.x, player.transform.position.y + offsetY, -14);
-        }
+        transform.position = new Vector3(posX, posY, transform.position.z);
     }
 }
