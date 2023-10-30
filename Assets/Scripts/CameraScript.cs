@@ -53,6 +53,7 @@ public class CameraScript : MonoBehaviour
 
     float offsetX = 10;
     float offsetY = 0;
+    public GameObject background;
     // Start is called before the first frame update
     void Start()
     {
@@ -71,9 +72,12 @@ public class CameraScript : MonoBehaviour
         var diff = player.transform.position - transform.position;
 
         var posX = player.transform.position.x + (diff.x >= offsetX ? -offsetX : offsetX);
-
         var posY = player.transform.position.y + (diff.y >= offsetY ? -offsetY : offsetY);
 
-        transform.position = new Vector3(posX, posY, transform.position.z);
+        var transX = posX - transform.position.x;
+        var transY = posY - transform.position.y;
+
+        transform.Translate(transX, transY, 0);
+        background.transform.Translate(-transX/2, 0, 0);
     }
 }
