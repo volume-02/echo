@@ -20,7 +20,6 @@ public class ObjectMoverScript : MonoBehaviour
     void FixedUpdate()
     {
         var vectorToNextPoint = travelPoints[currIndex].position - transform.position;
-
         transform.Translate(vectorToNextPoint.normalized * Time.deltaTime * speed);
 
         if (vectorToNextPoint.magnitude < 0.1f)
