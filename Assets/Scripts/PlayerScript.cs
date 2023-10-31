@@ -12,6 +12,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject weapon;
     bool isOnGround = true;
     int hitPoints = 3;
+    int score = 0;
     int jumpCount = 0;
     bool isRotating = false;
 
@@ -20,6 +21,7 @@ public class PlayerScript : MonoBehaviour
     GameManagerScript gameManager;
 
     public TextMeshProUGUI hpText;
+    public TextMeshProUGUI scoreText;
 
     Vector2 movement;
 
@@ -28,6 +30,7 @@ public class PlayerScript : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody>();
         hpText.text = $"HP: {hitPoints}";
+        scoreText.text = $"Score: {score}";
         gameManager = FindObjectOfType<GameManagerScript>().GetComponent<GameManagerScript>();
     }
 
@@ -72,7 +75,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
@@ -82,12 +85,22 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = false;
             gameObject.transform.parent = null;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            score++;
+            scoreText.text = $"Score: {score}";
+            Destroy(other.gameObject);
         }
     }
 
@@ -103,7 +116,7 @@ public class PlayerScript : MonoBehaviour
 
     public void Attack()
     {
-            StartCoroutine(SwingWeapon());
+        StartCoroutine(SwingWeapon());
     }
 
     //Extremely suspicious, but working, so ok...
