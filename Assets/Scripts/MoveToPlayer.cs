@@ -26,7 +26,22 @@ public class MoveToPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        var d = GetDirection();
+        TurnEnemy(d);
+        MoveEnemy(d);
+        
+    }
+
+    void MoveEnemy(Vector3 direction)
+    {
+        transform.Translate(new Vector3(direction.x, 0, 0) * speed * Time.deltaTime, Space.World);
+        animator.SetBool("isMoving", isMoving);
+    }
+
+    Vector3 GetDirection()
+    {
         Vector3 direction = Vector3.zero;
+
         isMoving = Mathf.Abs((startPosition - transform.position).x) > 0.1;
         var playerPos = player.transform.position;
 
@@ -34,20 +49,17 @@ public class MoveToPlayer : MonoBehaviour
         {
             direction = (playerPos - transform.position).normalized;
         }
-        else if(isMoving)
+        else if (isMoving)
         {
             direction = (startPosition - transform.position).normalized;
         }
-
-        transform.Translate(new Vector3(direction.x, 0, 0) * speed * Time.deltaTime, Space.World);
-        animator.SetBool("isMoving", isMoving);
-        TurnEnemy(direction);
-
+        
+        return direction;
     }
 
     void TurnEnemy(Vector3 direction)
     {
-        if (direction != Vector3.right)
+        if (direction.x < 0)
         {
             gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
