@@ -16,6 +16,8 @@ public class PlayerScript : MonoBehaviour
     int jumpCount = 0;
     bool isRotating = false;
     public Vector3 savePos;
+    public Animator playerAnimator;
+    public Animator coatAnimator;
 
     Vector3 direction = Vector3.right;
 
@@ -49,9 +51,18 @@ public class PlayerScript : MonoBehaviour
     {
         movement = context.ReadValue<Vector2>();
 
+
+
         if (movement.x != 0)
         {
             direction = new Vector3(movement.x, 0, 0);
+            playerAnimator.SetBool("isRunning", true);
+            coatAnimator.SetBool("isRunning", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("isRunning", false);
+            coatAnimator.SetBool("isRunning", false);
         }
 
         if (direction == Vector3.right)
@@ -71,6 +82,9 @@ public class PlayerScript : MonoBehaviour
             if ((isOnGround || jumpCount < 2) && !gameManager.isGameOver)
             {
                 playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+                playerAnimator.SetTrigger("jump");
+                coatAnimator.SetTrigger("jump");
                 jumpCount++;
             }
         }
@@ -83,6 +97,8 @@ public class PlayerScript : MonoBehaviour
             isOnGround = true;
             jumpCount = 0;
             gameObject.transform.parent = collision.transform;
+            playerAnimator.SetBool("isFalling", false);
+            coatAnimator.SetBool("isFalling", false);
         }
     }
 
@@ -92,6 +108,8 @@ public class PlayerScript : MonoBehaviour
         {
             isOnGround = false;
             gameObject.transform.parent = null;
+            playerAnimator.SetBool("isFalling", true);
+            coatAnimator.SetBool("isFalling", true);
         }
     }
 
@@ -114,6 +132,7 @@ public class PlayerScript : MonoBehaviour
     {
         hitPoints = 3;
         hpText.text = $"HP: {hitPoints}";
+        playerRb.isKinematic = false;
     }
 
     public void TakeDamage(int damage)
@@ -122,13 +141,21 @@ public class PlayerScript : MonoBehaviour
         hpText.text = $"HP: {hitPoints}";
         if (hitPoints <= 0)
         {
-            gameManager.GameOver();
+            AcceptDeath();
         }
+    }
+
+    void AcceptDeath()
+    {
+        gameManager.GameOver();
+        playerRb.isKinematic = true;
     }
 
     public void Attack()
     {
         StartCoroutine(SwingWeapon());
+        playerAnimator.SetTrigger("attack");
+        coatAnimator.SetTrigger("attack");
     }
 
     //Extremely suspicious, but working, so ok...
