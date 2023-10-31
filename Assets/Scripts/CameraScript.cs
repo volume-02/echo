@@ -64,10 +64,10 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        calcCameraPosition();
+        CalcCameraPosition();
     }
 
-    void calcCameraPosition()
+    public void CalcCameraPosition()
     {
         var diff = player.transform.position - transform.position;
 

@@ -15,6 +15,7 @@ public class PlayerScript : MonoBehaviour
     int score = 0;
     int jumpCount = 0;
     bool isRotating = false;
+    public Vector3 savePos;
 
     Vector3 direction = Vector3.right;
 
@@ -102,6 +103,17 @@ public class PlayerScript : MonoBehaviour
             scoreText.text = $"Score: {score}";
             Destroy(other.gameObject);
         }
+
+
+        if (other.gameObject.CompareTag("Save"))
+        {
+            savePos = other.transform.position;
+        }
+    }
+    public void Heal()
+    {
+        hitPoints = 3;
+        hpText.text = $"HP: {hitPoints}";
     }
 
     public void TakeDamage(int damage)
