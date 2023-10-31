@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameManagerScript : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
 
     public bool isGameOver;
@@ -42,7 +42,6 @@ public class GameManagerScript : MonoBehaviour
     public void Revive()
     {
         var playerScript = player.GetComponent<PlayerScript>();
-        var cameraScript = camera.GetComponent<CameraScript>();
 
         isGameOver = false;
         gameOverText.gameObject.SetActive(false);

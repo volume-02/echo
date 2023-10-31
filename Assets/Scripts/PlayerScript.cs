@@ -21,7 +21,7 @@ public class PlayerScript : MonoBehaviour
 
     Vector3 direction = Vector3.right;
 
-    GameManagerScript gameManager;
+    GameManager gameManager;
 
     public TextMeshProUGUI hpText;
     public TextMeshProUGUI scoreText;
@@ -34,7 +34,7 @@ public class PlayerScript : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         hpText.text = $"HP: {hitPoints}";
         scoreText.text = $"Score: {score}";
-        gameManager = FindObjectOfType<GameManagerScript>().GetComponent<GameManagerScript>();
+        gameManager = FindObjectOfType<GameManager>().GetComponent<GameManager>();
     }
 
     private void Update()
