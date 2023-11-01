@@ -17,7 +17,6 @@ public class PlayerScript : MonoBehaviour
     bool isRotating = false;
     public Vector3 savePos;
     public Animator playerAnimator;
-    public Animator coatAnimator;
 
     Vector3 direction = Vector3.right;
 
@@ -57,12 +56,10 @@ public class PlayerScript : MonoBehaviour
         {
             direction = new Vector3(movement.x, 0, 0);
             playerAnimator.SetBool("isRunning", true);
-            coatAnimator.SetBool("isRunning", true);
         }
         else
         {
             playerAnimator.SetBool("isRunning", false);
-            coatAnimator.SetBool("isRunning", false);
         }
 
         if (direction == Vector3.right)
@@ -84,7 +81,6 @@ public class PlayerScript : MonoBehaviour
                 playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
                 playerAnimator.SetTrigger("jump");
-                coatAnimator.SetTrigger("jump");
                 jumpCount++;
             }
         }
@@ -98,7 +94,6 @@ public class PlayerScript : MonoBehaviour
             jumpCount = 0;
             gameObject.transform.parent = collision.transform;
             playerAnimator.SetBool("isFalling", false);
-            coatAnimator.SetBool("isFalling", false);
         }
     }
 
@@ -109,7 +104,6 @@ public class PlayerScript : MonoBehaviour
             isOnGround = false;
             gameObject.transform.parent = null;
             playerAnimator.SetBool("isFalling", true);
-            coatAnimator.SetBool("isFalling", true);
         }
     }
 
@@ -154,8 +148,6 @@ public class PlayerScript : MonoBehaviour
     public void Attack()
     {
         StartCoroutine(SwingWeapon());
-        playerAnimator.SetTrigger("attack");
-        coatAnimator.SetTrigger("attack");
     }
 
     //Extremely suspicious, but working, so ok...
@@ -163,6 +155,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (isRotating) yield break;
         isRotating = true;
+        playerAnimator.SetTrigger("attack");
 
         var counter = 0;
         var total = 90;
