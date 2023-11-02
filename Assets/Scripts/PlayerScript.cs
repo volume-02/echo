@@ -43,7 +43,7 @@ public class PlayerScript : MonoBehaviour
     void FixedUpdate()
     {
         if (!gameManager.isGameOver) { transform.Translate(Vector3.right * playerSpeed * Time.deltaTime * movement.x, Space.World); }
-
+        playerAnimator.SetFloat("verticalSpeed", playerRb.velocity.y);
     }
 
     public void Move(InputAction.CallbackContext context)
