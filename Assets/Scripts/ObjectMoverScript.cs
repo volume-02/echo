@@ -13,6 +13,13 @@ public class ObjectMoverScript : MonoBehaviour
     public float pauseTime = 1;
     public bool withPause = false;
     public float slowDownDistance = 1;
+    public float intensivity
+    {
+        get
+        {
+            return currentSpeed / speed;
+        }
+    }
 
     int currIndex = 0;
 
