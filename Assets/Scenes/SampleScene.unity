@@ -151,6 +151,10 @@ MonoBehaviour:
   - {fileID: 243871380}
   - {fileID: 863363532}
   speed: 10
+  minSpeed: 10
+  pauseTime: 1
+  withPause: 0
+  slowDownDistance: 1
 --- !u!114 &21676509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +342,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7310122097611198763, guid: 687ef3544fa9f2845a01c3b8cc1e8368,
+        type: 3}
+      propertyPath: minSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7310122097611198763, guid: 687ef3544fa9f2845a01c3b8cc1e8368,
+        type: 3}
+      propertyPath: pauseTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7310122097611198763, guid: 687ef3544fa9f2845a01c3b8cc1e8368,
+        type: 3}
+      propertyPath: withPause
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7310122097611198763, guid: 687ef3544fa9f2845a01c3b8cc1e8368,
         type: 3}
@@ -1337,7 +1356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2098553, y: -0.000000029138699, z: 0.0000000062541754, w: 0.9777325}
+  m_LocalRotation: {x: 0.20985532, y: 3.3944934e-15, z: -6.0293325e-16, w: 0.9777325}
   m_LocalPosition: {x: 14.457661, y: 5.92, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1848,6 +1867,10 @@ MonoBehaviour:
   - {fileID: 1885553502}
   - {fileID: 1042716759}
   speed: 10
+  minSpeed: 10
+  pauseTime: 1
+  withPause: 0
+  slowDownDistance: 1
 --- !u!114 &500142875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2287,6 +2310,10 @@ MonoBehaviour:
   - {fileID: 875714433}
   - {fileID: 84853776}
   speed: 10
+  minSpeed: 10
+  pauseTime: 1
+  withPause: 0
+  slowDownDistance: 1
 --- !u!114 &637939720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2526,6 +2553,10 @@ MonoBehaviour:
   - {fileID: 2055012156}
   - {fileID: 445624352}
   speed: 10
+  minSpeed: 10
+  pauseTime: 1
+  withPause: 0
+  slowDownDistance: 1
 --- !u!4 &761453753 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7356662073174581413, guid: c751e7f69146f02429a693c71d5e5286,
@@ -2991,6 +3022,10 @@ MonoBehaviour:
   - {fileID: 2057093284}
   - {fileID: 1572806392}
   speed: 10
+  minSpeed: 10
+  pauseTime: 1
+  withPause: 0
+  slowDownDistance: 1
 --- !u!114 &954735812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3296,7 +3331,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037260340}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2098553, y: -0.000000029138699, z: 0.0000000062541754, w: 0.9777325}
+  m_LocalRotation: {x: 0.20985532, y: 3.3944934e-15, z: -6.0293325e-16, w: 0.9777325}
   m_LocalPosition: {x: 14.457661, y: 5.92, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5142,6 +5177,10 @@ MonoBehaviour:
   - {fileID: 1081253540}
   - {fileID: 2114905018}
   speed: 10
+  minSpeed: 10
+  pauseTime: 1
+  withPause: 0
+  slowDownDistance: 1
 --- !u!114 &1791290853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5530,6 +5569,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7310122097611198763, guid: 687ef3544fa9f2845a01c3b8cc1e8368,
         type: 3}
+      propertyPath: minSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7310122097611198763, guid: 687ef3544fa9f2845a01c3b8cc1e8368,
+        type: 3}
+      propertyPath: pauseTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7310122097611198763, guid: 687ef3544fa9f2845a01c3b8cc1e8368,
+        type: 3}
+      propertyPath: withPause
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7310122097611198763, guid: 687ef3544fa9f2845a01c3b8cc1e8368,
+        type: 3}
       propertyPath: travelPoints.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -5629,6 +5683,10 @@ MonoBehaviour:
   - {fileID: 815672524}
   - {fileID: 1527834817}
   speed: 10
+  minSpeed: 10
+  pauseTime: 1
+  withPause: 0
+  slowDownDistance: 1
 --- !u!114 &1902725677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6913,6 +6971,21 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7310122097611198763, guid: 687ef3544fa9f2845a01c3b8cc1e8368,
+        type: 3}
+      propertyPath: minSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7310122097611198763, guid: 687ef3544fa9f2845a01c3b8cc1e8368,
+        type: 3}
+      propertyPath: withPause
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7310122097611198763, guid: 687ef3544fa9f2845a01c3b8cc1e8368,
+        type: 3}
+      propertyPath: slowDownDistance
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7310122097611198763, guid: 687ef3544fa9f2845a01c3b8cc1e8368,
         type: 3}
