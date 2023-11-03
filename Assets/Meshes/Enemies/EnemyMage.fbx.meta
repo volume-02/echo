@@ -3,7 +3,32 @@ guid: e53b1992ae80ac64a97ffb24b180eef5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BodyMaterial
+    second: {fileID: 2100000, guid: a81d89350c9147d419ed3b07594e4e49, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HeadMaterial
+    second: {fileID: 2100000, guid: c348cca166d71d04da49ec7847bc61be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Heart
+    second: {fileID: 2100000, guid: 5da9a6dfe8795934db39cd4287b7d8b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HeartContainer
+    second: {fileID: 2100000, guid: 698d50cf2c44c684e9f5fcbb3346f17b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: 367c6bd98501c654680eda4881a40389, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

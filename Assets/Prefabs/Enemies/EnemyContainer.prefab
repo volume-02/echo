@@ -62,9 +62,9 @@ Transform:
   m_GameObject: {fileID: 3967547388897136729}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.41407585, y: -2.0146294, z: 3.4366481}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.41407585, y: -2.0146294, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4373496931418653801}
   m_Father: {fileID: 508936184037863881}
@@ -105,6 +105,15 @@ MonoBehaviour:
   leftBound: {fileID: 7237943264232478578}
   rightBound: {fileID: 7084618498820050038}
   player: {fileID: 0}
+  enemyMesh: {fileID: 4033563788455714515}
+  bodyRenderer: {fileID: 3286165754922401488}
+  isStalking: 0
+  headMaterial: {fileID: 2100000, guid: c348cca166d71d04da49ec7847bc61be, type: 2}
+  heartMaterial: {fileID: 2100000, guid: 5da9a6dfe8795934db39cd4287b7d8b1, type: 2}
+  angryMaterial: {fileID: 2100000, guid: ca140f8d6d7cb48498d9103996257e1c, type: 2}
+  lantern: {fileID: 7605402836824743829}
+  lanternColor: {r: 0.03137255, g: 0.8627451, b: 1, a: 1}
+  lanternAngryColor: {r: 1, g: 0.2242375, b: 0, a: 1}
 --- !u!114 &8262010835552521783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +153,7 @@ Transform:
   m_GameObject: {fileID: 5115073736167877440}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.385925, y: -2.0946293, z: 3.4366481}
+  m_LocalPosition: {x: 23.33, y: -2.0946293, z: 3.4366481}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -175,7 +184,7 @@ Transform:
   m_GameObject: {fileID: 5647818823386238907}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.714077, y: 0.47537062, z: 3.4366481}
+  m_LocalPosition: {x: -18.77, y: 0.23, z: 2.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -253,6 +262,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 169435938135058890}
   m_SourcePrefab: {fileID: 100100000, guid: e53b1992ae80ac64a97ffb24b180eef5, type: 3}
+--- !u!137 &3286165754922401488 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1630794972795428178, guid: e53b1992ae80ac64a97ffb24b180eef5,
+    type: 3}
+  m_PrefabInstance: {fileID: 4268129544072143746}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4033563788455714515 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e53b1992ae80ac64a97ffb24b180eef5,
@@ -283,6 +298,12 @@ Animator:
 --- !u!4 &4373496931418653801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e53b1992ae80ac64a97ffb24b180eef5,
+    type: 3}
+  m_PrefabInstance: {fileID: 4268129544072143746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &7605402836824743829 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 5958438921693756439, guid: e53b1992ae80ac64a97ffb24b180eef5,
     type: 3}
   m_PrefabInstance: {fileID: 4268129544072143746}
   m_PrefabAsset: {fileID: 0}
