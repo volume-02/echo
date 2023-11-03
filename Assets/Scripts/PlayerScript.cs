@@ -120,6 +120,7 @@ public class PlayerScript : MonoBehaviour
         if (other.gameObject.CompareTag("Save"))
         {
             savePos = other.transform.position;
+            other.GetComponent<Checkpoint>().Check();
         }
     }
     public void Heal()
