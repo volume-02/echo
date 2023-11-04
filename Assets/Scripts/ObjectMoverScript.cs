@@ -21,7 +21,7 @@ public class ObjectMoverScript : MonoBehaviour
         }
     }
 
-    int currIndex = 0;
+    public int currIndex = 0;
 
     bool isMoving = true;
 
