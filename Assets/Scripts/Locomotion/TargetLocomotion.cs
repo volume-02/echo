@@ -42,7 +42,7 @@ namespace Ghostery.Locomotion
         {
             get
             {
-                return minSpeed + (speed - minSpeed) * aspect;
+                return isReached ? 0 : minSpeed + (speed - minSpeed) * aspect;
             }
         }
         public float intensivity

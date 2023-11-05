@@ -11,22 +11,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9345a91300fc68243826dd4cbfe0106c,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.4360533
+      value: 1.4360532
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9345a91300fc68243826dd4cbfe0106c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 162.9961
+      value: 16.89798
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9345a91300fc68243826dd4cbfe0106c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.52
+      value: -23.512615
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9345a91300fc68243826dd4cbfe0106c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.1
+      value: 23.861914
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9345a91300fc68243826dd4cbfe0106c,
         type: 3}
@@ -36,7 +36,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9345a91300fc68243826dd4cbfe0106c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9345a91300fc68243826dd4cbfe0106c,
         type: 3}
@@ -46,7 +46,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9345a91300fc68243826dd4cbfe0106c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9345a91300fc68243826dd4cbfe0106c,
         type: 3}
@@ -79,7 +79,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9345a91300fc68243826dd4cbfe0106c,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1881964666612306447}
+      addedObject: {fileID: 7195547959062814579}
   m_SourcePrefab: {fileID: 100100000, guid: 9345a91300fc68243826dd4cbfe0106c, type: 3}
 --- !u!1 &4172257932334534767 stripped
 GameObject:
@@ -108,7 +108,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.5154066, y: 5.516285, z: 25.307789}
   m_Center: {x: 0.014057878, y: 0.0020149946, z: -12.464188}
---- !u!114 &1881964666612306447
+--- !u!114 &7195547959062814579
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,8 +117,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4172257932334534767}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48d901e3639dd914ebd71dc56ecd2061, type: 3}
+  m_Script: {fileID: 11500000, guid: bc64360012a626346ac18969a07349f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 10000
   damage: 30

@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using Ghostery.Staff;
+using Ghostery.Damage;
 
 public class PlayerScript : MonoBehaviour
 {
+    Damagable dmgbl;
     Rigidbody playerRb;
     public float jumpForce = 10f;
     public float playerSpeed = 10f;
     public GameObject weapon;
     bool isOnGround = true;
-    int hitPoints = 3;
     int score = 0;
     int jumpCount = 0;
     bool isRotating = false;
@@ -30,8 +32,9 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dmgbl = GetComponent<Damagable>();
         playerRb = GetComponent<Rigidbody>();
-        hpText.text = $"HP: {hitPoints}";
+        hpText.text = $"HP: {dmgbl.health}";
         scoreText.text = $"Score: {score}";
         gameManager = FindObjectOfType<GameManager>().GetComponent<GameManager>();
     }
@@ -44,6 +47,11 @@ public class PlayerScript : MonoBehaviour
     {
         if (!gameManager.isGameOver) { transform.Translate(Vector3.right * playerSpeed * Time.deltaTime * movement.x, Space.World); }
         playerAnimator.SetFloat("verticalSpeed", playerRb.velocity.y);
+        hpText.text = $"HP: {dmgbl.health}";
+        if (dmgbl.health <= 0)
+        {
+            AcceptDeath();
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -125,19 +133,9 @@ public class PlayerScript : MonoBehaviour
     }
     public void Heal()
     {
-        hitPoints = 3;
-        hpText.text = $"HP: {hitPoints}";
+        dmgbl.health = 3;
+        hpText.text = $"HP: {dmgbl.health}";
         playerRb.isKinematic = false;
-    }
-
-    public void TakeDamage(int damage)
-    {
-        hitPoints -= damage;
-        hpText.text = $"HP: {hitPoints}";
-        if (hitPoints <= 0)
-        {
-            AcceptDeath();
-        }
     }
 
     void AcceptDeath()

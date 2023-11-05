@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3587214311754472076}
   - component: {fileID: 6668989122511654737}
   - component: {fileID: 5759228618979340497}
+  - component: {fileID: 6742839547187409803}
   m_Layer: 0
   m_Name: FireBoss
   m_TagString: Enemy
@@ -136,3 +137,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  isMoving: 1
+--- !u!114 &6742839547187409803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6984469381415288667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc64360012a626346ac18969a07349f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
