@@ -9,6 +9,9 @@ namespace Ghostery.Locomotion
         public bool isMoving = true;
         public float slowDownDistance = 1;
         public Transform target;
+        public bool X = true;
+        public bool Y = true;
+        public bool Z = true;
 
         public Vector3 vectorToTarget
         {
@@ -57,7 +60,7 @@ namespace Ghostery.Locomotion
         {
             if (isMoving && target != null)
             {
-                transform.Translate(vectorToTarget.normalized * currentSpeed * Time.deltaTime);
+                transform.Translate(new Vector3(X ? vectorToTarget.x : 0, Y ? vectorToTarget.y : 0, Z ? vectorToTarget.z : 0).normalized * currentSpeed * Time.deltaTime);
             }
         }
     }

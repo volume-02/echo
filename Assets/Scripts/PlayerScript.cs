@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using Ghostery.Damage;
+using Ghostery.Staff;
 
 namespace Ghostery
 {
@@ -22,16 +23,26 @@ namespace Ghostery
         Rigidbody playerRb;
         public Animator playerAnimator;
 
-        bool isOnGround = true;
+        bool isOnGround
+        {
+            get
+            {
+                return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
+            }
+        }
         int jumpCount = 0;
         Vector3 direction = Vector3.zero;
 
         GameManager gameManager;
+        Collider collider;
+        float distToGround = 0;
         void Start()
         {
             damagable = GetComponent<Damagable>();
             playerRb = GetComponent<Rigidbody>();
             gameManager = FindObjectOfType<GameManager>().GetComponent<GameManager>();
+            collider = GetComponent<Collider>();
+            distToGround = collider.bounds.extents.y;
         }
 
         void FixedUpdate()
@@ -54,7 +65,10 @@ namespace Ghostery
         {
             var movement = context.ReadValue<Vector2>();
             direction = new Vector3(movement.x, 0, 0);
-            Turn();
+            if(context.action.phase == InputActionPhase.Started)
+            {
+                Turn();
+            }
         }
 
         public void Turn()
@@ -99,7 +113,6 @@ namespace Ghostery
         {
             if (collision.gameObject.CompareTag("Ground"))
             {
-                isOnGround = true;
                 jumpCount = 0;
                 gameObject.transform.parent = collision.transform;
             }
@@ -109,7 +122,6 @@ namespace Ghostery
         {
             if (collision.gameObject.CompareTag("Ground"))
             {
-                isOnGround = false;
                 gameObject.transform.parent = null;
             }
         }
@@ -123,6 +135,7 @@ namespace Ghostery
             }
             else if (other.gameObject.CompareTag("Save"))
             {
+                other.GetComponent<Checkpoint>().Check();
                 gameManager.StorePoint(other.transform.position);
             }
         }

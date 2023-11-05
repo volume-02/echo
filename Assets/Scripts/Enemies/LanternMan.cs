@@ -9,7 +9,7 @@ namespace Ghostery.Enemies
     public class LanternMan : MonoBehaviour
     {
         public GameObject enemyMesh;
-        Renderer bodyRenderer;
+        public Renderer bodyRenderer;
         public Animator animator;
         Damagable damagable;
         GuardLocomotion guardLocomotion;
@@ -29,7 +29,6 @@ namespace Ghostery.Enemies
             guardLocomotion = GetComponent<GuardLocomotion>();
             targetLocomotion = GetComponent<TargetLocomotion>();
             damagable = GetComponent<Damagable>();
-            bodyRenderer = enemyMesh.GetComponent<Renderer>();
             materials = new List<Material>(bodyRenderer.materials);
         }
 
