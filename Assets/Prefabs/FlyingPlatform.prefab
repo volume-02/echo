@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 653016441191340606}
   - component: {fileID: 6228593437346371022}
-  - component: {fileID: 7310122097611198763}
+  - component: {fileID: 6902785623164940535}
+  - component: {fileID: -6777942539585405069}
   - component: {fileID: 1114361509578962342}
   m_Layer: 0
   m_Name: FlyingPlatform
@@ -56,7 +57,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10.116592, y: 1.534615, z: 5.6314187}
   m_Center: {x: -0.0000076293945, y: -0.26730752, z: 0.20150495}
---- !u!114 &7310122097611198763
+--- !u!114 &6902785623164940535
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,17 +66,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 387384949006149173}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f72f2cebf7eaf74eb19daf6c312a8df, type: 3}
+  m_Script: {fileID: 11500000, guid: e6d1b62487ea1634588332e5ac02f322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  travelPoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  minSpeed: 3
   speed: 10
-  minSpeed: 10
-  pauseTime: 1
-  withPause: 0
+  isMoving: 1
   slowDownDistance: 1
+  target: {fileID: 0}
+--- !u!114 &-6777942539585405069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387384949006149173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a7136dd4054654fb84462b0193ba2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trajcetoryPoints: []
+  pauseTime: 1
 --- !u!114 &1114361509578962342
 MonoBehaviour:
   m_ObjectHideFlags: 0

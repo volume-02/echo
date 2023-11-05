@@ -1,16 +1,16 @@
-using System.Collections;
+using Ghostery.Locomotion;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CrystalPlatform : MonoBehaviour
 {
-    ObjectMoverScript platformMove;
+    TargetLocomotion platformMove;
     public List<Renderer> crystals;
     public float maxIntensivity = 1;
     // Start is called before the first frame update
     void Start()
     {
-        platformMove = GetComponent<ObjectMoverScript>();
+        platformMove = GetComponent<TargetLocomotion>();
     }
 
     // Update is called once per frame

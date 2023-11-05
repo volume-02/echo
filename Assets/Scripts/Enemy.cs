@@ -1,3 +1,4 @@
+using Ghostery.Locomotion;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,14 +10,14 @@ public class Enemy : MonoBehaviour
     public int damage = 1;
     public bool destroyable = true;
     Collider collider;
-    ObjectMoverScript mover;
+    TrajectoryLocomotion mover;
     public Boss target;
     bool fighting = true;
     // Start is called before the first frame update
     void Start()
     {
         collider = GetComponent<Collider>();
-        mover = GetComponent<ObjectMoverScript>();
+        mover = GetComponent<TrajectoryLocomotion>();
     }
 
     // Update is called once per frame
@@ -34,8 +35,7 @@ public class Enemy : MonoBehaviour
                 }
                 else
                 {
-                    mover.travelPoints = new List<Transform>(new[] { target.transform });
-                    mover.currIndex = 0;
+                    mover.trajcetoryPoints = new List<Transform>(new[] { target.transform });
                 }
             }
         }

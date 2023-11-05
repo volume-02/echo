@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6563106801688444344}
   - component: {fileID: 3587214311754472076}
   - component: {fileID: 6668989122511654737}
-  - component: {fileID: 1817283127048611377}
+  - component: {fileID: 5759228618979340497}
   m_Layer: 0
   m_Name: FireBoss
   m_TagString: Enemy
@@ -123,7 +123,7 @@ MonoBehaviour:
   damage: 1
   destroyable: 0
   target: {fileID: 0}
---- !u!114 &1817283127048611377
+--- !u!114 &5759228618979340497
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6984469381415288667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ad0482ad0b195040ba4359094bbbbb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 598fd166bcc77ab4ea543a2deba32ad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5

@@ -1,20 +1,15 @@
+using Ghostery.Locomotion;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BossMoveToPlayer : MonoBehaviour
 {
-    public Transform leftBound;
-    public Transform rightBound;
-
     public GameObject player;
     public GameObject fire;
+    public TargetLocomotion locomotion;
     //Animator animator;
 
-    Vector3 startPosition;
-    bool isMoving = false;
-
-    float speed = 5;
     float cooldown = 5;
     public float distance = 5;
     // Start is called before the first frame update
@@ -22,8 +17,8 @@ public class BossMoveToPlayer : MonoBehaviour
 
     void Start()
     {
-        startPosition = transform.position;
         player = GameObject.FindWithTag("Player");
+        locomotion = GetComponent<TargetLocomotion>();
         //animator = enemyMesh.GetComponent<Animator>();
         StartCoroutine(Spawn());
     }
@@ -31,32 +26,12 @@ public class BossMoveToPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var d = GetDirection();
-        TurnEnemy(d);
-        MoveEnemy(d);
+        TurnEnemy();
     }
 
-    void MoveEnemy(Vector3 direction)
+    void TurnEnemy()
     {
-        transform.Translate(new Vector3(direction.x, 0, 0) * speed * Time.deltaTime, Space.World);
-        //animator.SetBool("isMoving", isMoving);
-    }
-
-    Vector3 GetDirection()
-    {
-        Vector3 direction = Vector3.zero;
-
-        if (transform.position.x > leftBound.position.x && transform.position.x < rightBound.position.x)
-        {
-            direction = (player.transform.position - transform.position).normalized;
-        }
-        
-        return direction;
-    }
-
-    void TurnEnemy(Vector3 direction)
-    {
-        if (direction.x < 0)
+        if (locomotion.vectorToTarget.x < 0)
         {
             gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
