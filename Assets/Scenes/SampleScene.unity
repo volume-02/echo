@@ -926,8 +926,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerScript, Assembly-CSharp
+      - m_Target: {fileID: 944390493}
+        m_TargetAssemblyTypeName: Ghostery.GameManager, Assembly-CSharp
         m_MethodName: Revive
         m_Mode: 1
         m_Arguments:
@@ -1360,18 +1360,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 554928544}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &329839685 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4033563788455714515, guid: 04f530531d2ee5e43ae91af7a4d37ffc,
-    type: 3}
-  m_PrefabInstance: {fileID: 1633640123}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &329839687 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 169435938135058890, guid: 04f530531d2ee5e43ae91af7a4d37ffc,
-    type: 3}
-  m_PrefabInstance: {fileID: 1633640123}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,7 +1447,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20985532, y: -1.5822025e-16, z: -1.5884398e-16, w: 0.9777325}
+  m_LocalRotation: {x: 0.2098553, y: -0.000000029138702, z: 0.0000000062541763, w: 0.9777325}
   m_LocalPosition: {x: 21.1, y: 5.9700003, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2605,12 +2593,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2131704784}
---- !u!137 &638551867 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 3286165754922401488, guid: 04f530531d2ee5e43ae91af7a4d37ffc,
-    type: 3}
-  m_PrefabInstance: {fileID: 1633640123}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &709073863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3597,7 +3579,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037260340}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20985532, y: -1.5822025e-16, z: -1.5884398e-16, w: 0.9777325}
+  m_LocalRotation: {x: 0.2098553, y: -0.000000029138702, z: 0.0000000062541763, w: 0.9777325}
   m_LocalPosition: {x: 21.1, y: 5.9700003, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5455,11 +5437,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1198255768354839544, guid: 04f530531d2ee5e43ae91af7a4d37ffc,
         type: 3}
-      propertyPath: X
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1198255768354839544, guid: 04f530531d2ee5e43ae91af7a4d37ffc,
-        type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 227258258}
@@ -5468,21 +5445,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyContainer
       objectReference: {fileID: 0}
-    - target: {fileID: 5692391835112733159, guid: 04f530531d2ee5e43ae91af7a4d37ffc,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 329839687}
-    - target: {fileID: 5692391835112733159, guid: 04f530531d2ee5e43ae91af7a4d37ffc,
-        type: 3}
-      propertyPath: enemyMesh
-      value: 
-      objectReference: {fileID: 329839685}
-    - target: {fileID: 5692391835112733159, guid: 04f530531d2ee5e43ae91af7a4d37ffc,
-        type: 3}
-      propertyPath: bodyRenderer
-      value: 
-      objectReference: {fileID: 638551867}
     - target: {fileID: 6262353698394395296, guid: 04f530531d2ee5e43ae91af7a4d37ffc,
         type: 3}
       propertyPath: target
@@ -6830,8 +6792,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerScript, Assembly-CSharp
+      - m_Target: {fileID: 944390493}
+        m_TargetAssemblyTypeName: Ghostery.GameManager, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:

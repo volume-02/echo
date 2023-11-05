@@ -43,7 +43,7 @@ namespace Ghostery
             playerScript.Heal();
 
             player.transform.position = savePos;
-
+            player.SetActive(true);
         }
 
         public void StorePoint(Vector3 position)

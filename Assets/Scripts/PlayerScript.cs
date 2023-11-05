@@ -136,7 +136,7 @@ namespace Ghostery
             else if (other.gameObject.CompareTag("Save"))
             {
                 other.GetComponent<Checkpoint>().Check();
-                gameManager.StorePoint(other.transform.position);
+                gameManager.StorePoint(transform.position);
             }
         }
         public void Heal()
