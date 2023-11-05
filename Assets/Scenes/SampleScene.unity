@@ -993,11 +993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 10
   playerSpeed: 10
-  weapon: {fileID: 250453494}
-  savePos: {x: 0, y: 0, z: 0}
   playerAnimator: {fileID: 1591346745}
-  hpText: {fileID: 1101610100}
-  scoreText: {fileID: 1550958007}
 --- !u!136 &227258255
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1128,7 +1124,7 @@ MonoBehaviour:
       - m_Target: {fileID: 227258254}
         m_TargetAssemblyTypeName: PlayerScript, Assembly-CSharp
         m_MethodName: Attack
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1157,7 +1153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  damagerTag: Damage
+  damagerTag: Enemy
 --- !u!1 &243871379
 GameObject:
   m_ObjectHideFlags: 0
@@ -3117,6 +3113,7 @@ MonoBehaviour:
   reviveButton: {fileID: 181781596}
   player: {fileID: 227258253}
   camera: {fileID: 330585543}
+  savePos: {x: 0, y: 0, z: 0}
 --- !u!1001 &946901050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4887,6 +4884,7 @@ GameObject:
   - component: {fileID: 1493288190}
   - component: {fileID: 1493288189}
   - component: {fileID: 1493288188}
+  - component: {fileID: 1493288192}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4981,6 +4979,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1493288192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493288187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f214f80a50c9c374b898bed64e51da3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpText: {fileID: 1101610100}
+  scoreText: {fileID: 1550958007}
+  player: {fileID: 227258254}
 --- !u!1001 &1506536339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7557,6 +7570,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Thorn
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172257932334534767, guid: ee344f27eb3849e408f254fe1f054763,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,56 +1,54 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Ghostery;
 
-public class GameManager : MonoBehaviour
+namespace Ghostery
 {
-
-    public bool isGameOver;
-    public TextMeshProUGUI gameOverText;
-    public Button restartButton;
-    public Button reviveButton;
-    public GameObject player;
-    new public GameObject camera;
-    // Start is called before the first frame update
-    void Start()
+    public class GameManager : MonoBehaviour
     {
-        isGameOver = false;   
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        public bool isGameOver = false;
+        public TextMeshProUGUI gameOverText;
+        public Button restartButton;
+        public Button reviveButton;
+        public GameObject player;
+        new public GameObject camera;
+        public Vector3 savePos;
 
-    public void GameOver()
-    {
-        isGameOver = true;
-        gameOverText.gameObject.SetActive(true);
-        restartButton.gameObject.SetActive(true);
-        reviveButton.gameObject.SetActive(true);
-    }
+        public void GameOver()
+        {
+            isGameOver = true;
+            gameOverText.gameObject.SetActive(true);
+            restartButton.gameObject.SetActive(true);
+            reviveButton.gameObject.SetActive(true);
+            player.SetActive(false);
+        }
 
-    public void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+        public void RestartGame()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
 
-    public void Revive()
-    {
-        var playerScript = player.GetComponent<PlayerScript>();
+        public void Revive()
+        {
+            var playerScript = player.GetComponent<PlayerScript>();
 
-        isGameOver = false;
-        gameOverText.gameObject.SetActive(false);
-        restartButton.gameObject.SetActive(false);
-        reviveButton.gameObject.SetActive(false);
+            isGameOver = false;
+            gameOverText.gameObject.SetActive(false);
+            restartButton.gameObject.SetActive(false);
+            reviveButton.gameObject.SetActive(false);
 
-        playerScript.Heal();
+            playerScript.Heal();
 
-        player.transform.position = playerScript.savePos;
+            player.transform.position = savePos;
 
+        }
+
+        public void StorePoint(Vector3 position)
+        {
+            savePos = position;
+        }
     }
 }
