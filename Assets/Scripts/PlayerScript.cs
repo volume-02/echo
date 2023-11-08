@@ -87,11 +87,15 @@ namespace Ghostery
         {
             if (context.phase == InputActionPhase.Started)
             {
-                if ((isOnGround || jumpCount < 2))
+                if ((isOnGround || jumpCount < 1))
                 {
                     playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
                     playerAnimator.SetTrigger("jump");
+                }
+
+                if (!isOnGround)
+                {
                     jumpCount++;
                 }
             }

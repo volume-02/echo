@@ -31,7 +31,7 @@ namespace Ghostery.Locomotion
         {
             get
             {
-                return vectorToTarget.magnitude <= 0.1;
+                return vectorToTarget.magnitude <= 1f;
             }
         }
         public float aspect
