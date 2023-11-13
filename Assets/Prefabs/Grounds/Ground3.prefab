@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4434683386890428831}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 485375604637186564}
   - component: {fileID: 2904968108874338150}
   - component: {fileID: 8117355096194186617}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rock.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 6234051052903518121}
   - component: {fileID: 1139299974788551104}
   - component: {fileID: 4164153377778831480}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cave3
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 4058733711205424773}
   - component: {fileID: 6090015785447042540}
   - component: {fileID: 1496931018726438847}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rock.002 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 4299512017644440336}
   - component: {fileID: 7347686804440089101}
   - component: {fileID: 7477960944045435640}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rock.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 7737932274569836442}
   - component: {fileID: 5420425693390527499}
   - component: {fileID: 8011507594965799661}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rock.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +579,7 @@ GameObject:
   - component: {fileID: 8786001364688271898}
   - component: {fileID: 8688707578154384363}
   - component: {fileID: 8784697523176976727}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rock.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -750,10 +750,25 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 914852579799767110, guid: 98f895b2df6e67141a7c06860ea0b85f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 98f895b2df6e67141a7c06860ea0b85f,
         type: 3}
       propertyPath: m_Name
       value: Mushroom (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 98f895b2df6e67141a7c06860ea0b85f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292579996080053811, guid: 98f895b2df6e67141a7c06860ea0b85f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -844,10 +859,25 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6432937022843773901, guid: 7f2f33c122e303b4c8ceb2e13bbf7054,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7f2f33c122e303b4c8ceb2e13bbf7054,
         type: 3}
       propertyPath: m_Name
       value: Mushroom3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7f2f33c122e303b4c8ceb2e13bbf7054,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647623903701466659, guid: 7f2f33c122e303b4c8ceb2e13bbf7054,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -938,10 +968,25 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 914852579799767110, guid: 98f895b2df6e67141a7c06860ea0b85f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 98f895b2df6e67141a7c06860ea0b85f,
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 98f895b2df6e67141a7c06860ea0b85f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292579996080053811, guid: 98f895b2df6e67141a7c06860ea0b85f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1032,10 +1077,25 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7818439450525094599, guid: 81c173da3bf4c9b478e4f66f27580d87,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 244364242353889875, guid: 81c173da3bf4c9b478e4f66f27580d87,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 81c173da3bf4c9b478e4f66f27580d87,
         type: 3}
       propertyPath: m_Name
       value: Mushroom2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 81c173da3bf4c9b478e4f66f27580d87,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1126,10 +1186,25 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 914852579799767110, guid: 98f895b2df6e67141a7c06860ea0b85f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 98f895b2df6e67141a7c06860ea0b85f,
         type: 3}
       propertyPath: m_Name
       value: Mushroom (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 98f895b2df6e67141a7c06860ea0b85f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292579996080053811, guid: 98f895b2df6e67141a7c06860ea0b85f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
