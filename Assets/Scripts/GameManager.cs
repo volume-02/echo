@@ -14,7 +14,6 @@ namespace Ghostery
         public Button restartButton;
         public Button reviveButton;
         public GameObject player;
-        new public GameObject camera;
         public Vector3 savePos;
 
         public void GameOver()
