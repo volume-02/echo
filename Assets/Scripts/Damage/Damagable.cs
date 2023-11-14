@@ -1,3 +1,4 @@
+using System.Data;
 using UnityEngine;
 
 namespace Ghostery.Damage
@@ -12,8 +13,9 @@ namespace Ghostery.Damage
             var damager = other.gameObject.GetComponent<Damager>();
             if (damager != null && damager.tag == damagerTag)
             {
-                health-= damager.damage;
+                health -= damager.damage;
             }
+
         }
     }
 }

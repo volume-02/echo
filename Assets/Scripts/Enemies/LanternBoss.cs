@@ -1,3 +1,4 @@
+using Ghostery.Damage;
 using Ghostery.Locomotion;
 using System.Collections;
 using UnityEngine;
@@ -6,6 +7,7 @@ namespace Ghostery.Enemies
 {
     public class LanternBoss : MonoBehaviour
     {
+        Damagable damagable;
         TargetLocomotion locomotion;
         public GameObject player;
         public GameObject fire;
@@ -13,32 +15,24 @@ namespace Ghostery.Enemies
         public float cooldownTime = 5;
         void Start()
         {
+            damagable = GetComponent<Damagable>();
             locomotion = GetComponent<TargetLocomotion>();
             StartCoroutine(Spawn());
         }
-        void FixedUpdate()
-        {
-            //TurnEnemy();
-        }
 
-        void TurnEnemy()
+        void FixedUpdate ()
         {
-            if (locomotion.vectorToTarget.x < 0)
+
+            if (damagable.health <= 0)
             {
-                gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
-            else
-            {
-                gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+                Destroy(gameObject);
             }
         }
 
         IEnumerator Spawn()
         {
-                Debug.Log("out while");
             while (true)
             {
-                Debug.Log($"in while {(player.transform.position - transform.position).magnitude} , {fireDistance}" );
                 if ((player.transform.position - transform.position).magnitude <= fireDistance)
                 {
                     var inst = Instantiate(fire);
