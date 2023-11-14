@@ -9,7 +9,7 @@ namespace Ghostery.Enemies
         TargetLocomotion locomotion;
         public GameObject player;
         public GameObject fire;
-        public float fireDistance = 5;
+        public float fireDistance = 50;
         public float cooldownTime = 5;
         void Start()
         {
@@ -18,7 +18,7 @@ namespace Ghostery.Enemies
         }
         void FixedUpdate()
         {
-            TurnEnemy();
+            //TurnEnemy();
         }
 
         void TurnEnemy()
@@ -35,8 +35,10 @@ namespace Ghostery.Enemies
 
         IEnumerator Spawn()
         {
+                Debug.Log("out while");
             while (true)
             {
+                Debug.Log($"in while {(player.transform.position - transform.position).magnitude} , {fireDistance}" );
                 if ((player.transform.position - transform.position).magnitude <= fireDistance)
                 {
                     var inst = Instantiate(fire);
