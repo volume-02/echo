@@ -12,13 +12,15 @@ namespace Ghostery.Enemies
         TargetLocomotion targetLocomotion;
         new Collider collider;
         bool active = true;
-        public BossController target;
+        public GameObject target;
+        BossController controller;
         void Start()
         {
             damagable = GetComponent<Damagable>();
             trajectoryLocomotion = GetComponent<TrajectoryLocomotion>();
             targetLocomotion = GetComponent<TargetLocomotion>();
             collider = GetComponent<Collider>();
+            controller = GetComponentInParent<BossController>();
         }
 
         void FixedUpdate()
@@ -49,7 +51,7 @@ namespace Ghostery.Enemies
 
         void Release()
         {
-            target.fires.Add(gameObject);
+            controller.fires.Add(gameObject);
             Destroy(this);
         }
     }
