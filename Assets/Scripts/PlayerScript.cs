@@ -23,6 +23,8 @@ namespace Ghostery
 
         Rigidbody playerRb;
         public Animator playerAnimator;
+        public AudioSource audioSource;
+        public AudioClip coinCollectSound;
 
 
 
@@ -140,6 +142,7 @@ namespace Ghostery
             {
                 score++;
                 Destroy(other.gameObject);
+                audioSource.PlayOneShot(coinCollectSound, 1);
             }
             else if (other.gameObject.CompareTag("Save"))
             {
