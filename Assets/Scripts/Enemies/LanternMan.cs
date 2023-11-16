@@ -14,6 +14,7 @@ namespace Ghostery.Enemies
         Damagable damagable;
         GuardLocomotion guardLocomotion;
         TargetLocomotion targetLocomotion;
+        AudioSource audioSource;
 
         List<Material> materials;
 
@@ -23,12 +24,14 @@ namespace Ghostery.Enemies
         public Light lantern;
         public Color lanternColor;
         public Color lanternAngryColor;
+        bool isToTarget = false;
 
         void Start()
         {
             guardLocomotion = GetComponent<GuardLocomotion>();
             targetLocomotion = GetComponent<TargetLocomotion>();
             damagable = GetComponent<Damagable>();
+            audioSource = GetComponent<AudioSource>();
             materials = new List<Material>(bodyRenderer.materials);
         }
 
@@ -42,6 +45,14 @@ namespace Ghostery.Enemies
         }
         void Update()
         {
+            if(isToTarget  != guardLocomotion.isToTarget)
+            {
+                if (guardLocomotion.isToTarget)
+                {
+                    audioSource.Play();
+                }
+                isToTarget = guardLocomotion.isToTarget;
+            }
             if (guardLocomotion.isToTarget)
             {
                 materials[0] = angryMaterial;
