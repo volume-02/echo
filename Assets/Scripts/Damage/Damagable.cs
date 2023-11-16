@@ -17,5 +17,10 @@ namespace Ghostery.Damage
             }
 
         }
+
+        public void GetRangedDamage(int damage)
+        {
+          health -= damage;
+        }
     }
 }
