@@ -3,12 +3,14 @@ using UnityEngine.InputSystem;
 using Ghostery.Damage;
 using Ghostery.Staff;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace Ghostery
 {
     public class PlayerScript : MonoBehaviour
     {
         Damagable damagable;
+        Vector3 shootDirection = Vector3.right;
         public int health
         {
             get
@@ -71,7 +73,8 @@ namespace Ghostery
         {
             var movement = context.ReadValue<Vector2>();
             direction = new Vector3(movement.x, 0, 0);
-            if(context.action.phase == InputActionPhase.Started)
+
+            if (context.action.phase == InputActionPhase.Started)
             {
                 Turn();
             }
@@ -107,6 +110,27 @@ namespace Ghostery
             }
         }
 
+
+        private void ProjectileAttack()
+        {
+
+
+            RaycastHit hit;
+            LayerMask mask = LayerMask.GetMask("Enemy");
+
+            var hasHit = Physics.Raycast(transform.position, transform.right, out hit, 10, mask);
+
+            Color color = Color.red;
+            Debug.DrawRay(transform.position, transform.right * 10, color, 1);
+
+            if (hasHit)
+            {
+                Debug.Log("hit");
+                hit.transform.gameObject.GetComponent<Damagable>().GetRangedDamage(1);
+            }
+        }
+
+
         public void Attack(InputAction.CallbackContext context)
         {
             if (context.action.phase == InputActionPhase.Started)
@@ -114,6 +138,7 @@ namespace Ghostery
                 var m_CurrentClipInfo = playerAnimator.GetCurrentAnimatorClipInfo(0);
                 if (m_CurrentClipInfo[0].clip.name != "Attack")
                 {
+                    ProjectileAttack();
                     playerAnimator.SetTrigger("attack");
                 }
             }
