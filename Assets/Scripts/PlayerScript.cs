@@ -2,6 +2,7 @@
 using UnityEngine.InputSystem;
 using Ghostery.Damage;
 using Ghostery.Staff;
+using System.Collections.Generic;
 
 namespace Ghostery
 {
@@ -23,7 +24,10 @@ namespace Ghostery
         Rigidbody playerRb;
         public Animator playerAnimator;
 
-        bool isOnGround
+
+
+
+        public bool isOnGround
         {
             get
             {
