@@ -77,6 +77,8 @@ MonoBehaviour:
   jumpForce: 10
   playerSpeed: 10
   playerAnimator: {fileID: 1046019888418726011}
+  audioSource: {fileID: 1374760032786616897}
+  coinCollectSound: {fileID: 8300000, guid: 757fd167e738e3c4fbc9403f77388185, type: 3}
 --- !u!54 &5436604554054981566
 Rigidbody:
   m_ObjectHideFlags: 0
