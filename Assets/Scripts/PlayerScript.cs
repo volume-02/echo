@@ -120,12 +120,8 @@ namespace Ghostery
 
             var hasHit = Physics.Raycast(transform.position, transform.right, out hit, 10, mask);
 
-            Color color = Color.red;
-            Debug.DrawRay(transform.position, transform.right * 10, color, 1);
-
             if (hasHit)
             {
-                Debug.Log("hit");
                 hit.transform.gameObject.GetComponent<Damagable>().GetRangedDamage(1);
             }
         }
