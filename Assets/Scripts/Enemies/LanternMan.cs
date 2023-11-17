@@ -25,6 +25,7 @@ namespace Ghostery.Enemies
         public Color lanternColor;
         public Color lanternAngryColor;
         bool isToTarget = false;
+        public AudioClip damageSound;
 
         void Start()
         {
@@ -79,6 +80,11 @@ namespace Ghostery.Enemies
             {
                 enemyMesh.transform.rotation = Quaternion.Euler(0, 180, 0);
             }
+        }
+
+        public void TakeDamage()
+        {
+            audioSource.PlayOneShot(damageSound);
         }
     }
 }

@@ -14,6 +14,8 @@ namespace Ghostery.Enemies
         bool active = true;
         public GameObject target;
         BossController controller;
+        AudioSource audioSource;
+        public AudioClip damageSound;
         void Start()
         {
             damagable = GetComponent<Damagable>();
@@ -21,6 +23,7 @@ namespace Ghostery.Enemies
             targetLocomotion = GetComponent<TargetLocomotion>();
             collider = GetComponent<Collider>();
             controller = GetComponentInParent<BossController>();
+            audioSource = GetComponent<AudioSource>();
         }
 
         void FixedUpdate()
@@ -53,6 +56,11 @@ namespace Ghostery.Enemies
         {
             controller.fires.Add(gameObject);
             Destroy(this);
+        }
+
+        public void TakeDamage()
+        {
+            audioSource.PlayOneShot(damageSound);
         }
     }
 }
