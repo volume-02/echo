@@ -113,19 +113,18 @@ namespace Ghostery
 
         private void ProjectileAttack()
         {
-
-
             RaycastHit hit;
             LayerMask mask = LayerMask.GetMask("Enemy");
+            float sphereRadius = 2;
+            float maxDistance = 8;
 
-            var hasHit = Physics.Raycast(transform.position, transform.right, out hit, 10, mask);
+            var hasHit = Physics.SphereCast(transform.position, sphereRadius, transform.right, out hit, maxDistance, mask, QueryTriggerInteraction.UseGlobal);
 
             if (hasHit)
             {
                 hit.transform.gameObject.GetComponent<Damagable>().GetRangedDamage(1);
             }
         }
-
 
         public void Attack(InputAction.CallbackContext context)
         {
