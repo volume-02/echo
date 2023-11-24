@@ -13,12 +13,12 @@ namespace Ghostery
         Vector3 shootDirection = Vector3.right;
         public int health
         {
+            set { damagable.health = value; }
             get
             {
                 return damagable.health;
             }
         }
-        public int score { get; set; } = 0;
 
         public float jumpForce = 10f;
         public float playerSpeed = 10f;
@@ -160,7 +160,7 @@ namespace Ghostery
         {
             if (other.gameObject.CompareTag("Coin"))
             {
-                score++;
+                Heal();
                 Destroy(other.gameObject);
                 audioSource.PlayOneShot(coinCollectSound, 1);
             }
@@ -170,9 +170,9 @@ namespace Ghostery
                 gameManager.StorePoint(transform.position);
             }
         }
-        public void Heal()
+        public void Heal(int hp = 1)
         {
-            damagable.health = 3;
+            damagable.health += hp;
         }
     }
 }

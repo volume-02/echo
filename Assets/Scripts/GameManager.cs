@@ -39,7 +39,7 @@ namespace Ghostery
             restartButton.gameObject.SetActive(false);
             reviveButton.gameObject.SetActive(false);
 
-            playerScript.Heal();
+            playerScript.Heal(3);
 
             player.transform.position = savePos;
             player.SetActive(true);

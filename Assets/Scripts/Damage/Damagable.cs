@@ -17,6 +17,10 @@ namespace Ghostery.Damage
             if (damager != null && damager.tag == damagerTag)
             {
                 health -= damager.damage;
+                if (health < 0)
+                {
+                    health = 0;
+                }
                 onDamage?.Invoke();
             }
 
@@ -25,6 +29,10 @@ namespace Ghostery.Damage
         public void GetRangedDamage(int damage)
         {
             health -= damage;
+            if (health < 0)
+            {
+                health = 0;
+            }
             onDamage?.Invoke();
         }
     }
