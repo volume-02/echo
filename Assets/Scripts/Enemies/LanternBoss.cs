@@ -2,6 +2,7 @@ using Ghostery.Damage;
 using Ghostery.Locomotion;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Ghostery.Enemies
 {
@@ -19,12 +20,14 @@ namespace Ghostery.Enemies
             locomotion = GetComponent<TargetLocomotion>();
             StartCoroutine(Spawn());
         }
+        public UnityEvent onDeath;
 
         void FixedUpdate ()
         {
 
             if (damagable.health <= 0)
             {
+                onDeath.Invoke();
                 Destroy(gameObject);
             }
         }

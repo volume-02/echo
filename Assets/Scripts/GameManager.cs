@@ -10,11 +10,14 @@ namespace Ghostery
     {
 
         public bool isGameOver = false;
-        public TextMeshProUGUI gameOverText;
-        public Button restartButton;
-        public Button reviveButton;
-        public GameObject player;
         public Vector3 savePos;
+
+        [SerializeField] TextMeshProUGUI gameOverText;
+        [SerializeField] Button restartButton;
+        [SerializeField] Button reviveButton;
+        [SerializeField] GameObject player;
+        [SerializeField] Button mainMenuButton;
+        [SerializeField] TextMeshProUGUI winText;
 
         public void GameOver()
         {
@@ -25,9 +28,22 @@ namespace Ghostery
             player.SetActive(false);
         }
 
+        public void GameOverSuccusessfully()
+        {
+            isGameOver = true;
+            restartButton.gameObject.SetActive(true);
+            player.SetActive(false);
+            winText.gameObject.SetActive(true);
+            mainMenuButton.gameObject.SetActive(true);
+        }
+
         public void RestartGame()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        public void OpenMainMenu() {
+            SceneManager.LoadScene("MainMenu");
         }
 
         public void Revive()
