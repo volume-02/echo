@@ -4,6 +4,7 @@ using Ghostery.Damage;
 using Ghostery.Staff;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
+using UnityEngine.Events;
 
 namespace Ghostery
 {
@@ -11,9 +12,11 @@ namespace Ghostery
     {
         Damagable damagable;
         Vector3 shootDirection = Vector3.right;
+
         public int health
         {
-            set { damagable.health = value; }
+            set {
+                damagable.health = value; }
             get
             {
                 return damagable.health;
@@ -56,7 +59,7 @@ namespace Ghostery
         void FixedUpdate()
         {
             transform.Translate(Vector3.right * playerSpeed * Time.deltaTime * direction.x, Space.World);
-            if (damagable.health <= 0)
+            if (health <= 0)
             {
                 gameManager.GameOver();
             }
@@ -172,7 +175,7 @@ namespace Ghostery
         }
         public void Heal(int hp = 1)
         {
-            damagable.health += hp;
+            health += hp;
         }
     }
 }
