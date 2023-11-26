@@ -58,11 +58,7 @@ namespace Ghostery
 
         void FixedUpdate()
         {
-            transform.Translate(Vector3.right * playerSpeed * Time.deltaTime * direction.x, Space.World);
-            if (health <= 0)
-            {
-                gameManager.GameOver();
-            }
+
         }
 
         private void Update()
@@ -70,6 +66,12 @@ namespace Ghostery
             playerAnimator.SetFloat("verticalSpeed", playerRb.velocity.y);
             playerAnimator.SetBool("isRunning", Mathf.Abs(direction.x) > 0);
             playerAnimator.SetBool("isFalling", !isOnGround);
+
+            transform.Translate(Vector3.right * playerSpeed * Time.deltaTime * direction.x, Space.World);
+            if (health <= 0)
+            {
+                gameManager.GameOver();
+            }
         }
 
         public void Move(InputAction.CallbackContext context)

@@ -56,7 +56,7 @@ namespace Ghostery.Locomotion
             }
         }
 
-        public void FixedUpdate()
+        public void Update()
         {
             if (isMoving && target != null)
             {
