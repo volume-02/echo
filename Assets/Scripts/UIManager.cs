@@ -8,6 +8,7 @@ namespace Ghostery
     {
         public PlayerScript player;
         [SerializeField] GameObject hpPrefab;
+        [SerializeField] GameObject hudContainer;
 
         int maxHp = 4;
         List<GameObject> hpList = new List<GameObject>();
@@ -18,8 +19,8 @@ namespace Ghostery
             {
                 var instObject = Instantiate(hpPrefab);
                 hpList.Add(instObject);
-                instObject.transform.SetParent(transform, false);
-                instObject.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(-630 + 70 * i, 216, 0);
+                instObject.transform.SetParent(hudContainer.transform, false);
+                instObject.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(-215 + 250 * i, 68, 0);
             }
         }
 
