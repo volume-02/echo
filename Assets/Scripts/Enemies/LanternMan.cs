@@ -46,27 +46,29 @@ namespace Ghostery.Enemies
         }
         void Update()
         {
-            if(isToTarget  != guardLocomotion.isToTarget)
+            if (isToTarget != guardLocomotion.isToTarget)
             {
                 if (guardLocomotion.isToTarget)
                 {
                     audioSource.Play();
                 }
                 isToTarget = guardLocomotion.isToTarget;
+
+                if (guardLocomotion.isToTarget)
+                {
+                    materials[0] = angryMaterial;
+                    materials[2] = angryMaterial;
+                    lantern.color = lanternAngryColor;
+                }
+                else
+                {
+                    materials[0] = headMaterial;
+                    materials[2] = heartMaterial;
+                    lantern.color = lanternColor;
+                }
+                bodyRenderer.SetMaterials(materials);
             }
-            if (guardLocomotion.isToTarget)
-            {
-                materials[0] = angryMaterial;
-                materials[2] = angryMaterial;
-                lantern.color = lanternAngryColor;
-            }
-            else
-            {
-                materials[0] = headMaterial;
-                materials[2] = heartMaterial;
-                lantern.color = lanternColor;
-            }
-            bodyRenderer.SetMaterials(materials);
+
             animator.SetBool("isMoving", targetLocomotion.isMoving);
         }
 
