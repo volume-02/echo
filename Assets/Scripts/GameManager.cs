@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Ghostery;
+using UnityEngine.Events;
 
 namespace Ghostery
 {
@@ -18,6 +19,7 @@ namespace Ghostery
         [SerializeField] GameObject player;
         [SerializeField] Button mainMenuButton;
         [SerializeField] TextMeshProUGUI winText;
+        public UnityEvent onGameOver;
 
         public void GameOver()
         {
@@ -26,6 +28,7 @@ namespace Ghostery
             restartButton.gameObject.SetActive(true);
             reviveButton.gameObject.SetActive(true);
             player.SetActive(false);
+            onGameOver?.Invoke();
         }
 
         public void GameOverSuccusessfully()
